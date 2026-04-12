@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maksim Lozovskii</title>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .container {
+      max-width: 56.25rem;
+      margin: auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.625rem;
+    }
+
+    p {
+      color: #94a3b8;
+    }
+
+    .links {
+      margin-top: 1.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9375rem;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      color: #e2e8f0;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-0.25rem);
+      background: #334155;
+    }
+
+    .footer {
+      margin-top: 3.125rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function App() {
+      const links = [
+        {
+          title: "GitHub",
+          url: "https://github.com/maksimlozovskii512",
+          description: "Check out my latest projects"
+        },
+        {
+          title: "LinkedIn",
+          url: "https://linkedin.com/in/maksimlozovskii",
+          description: "My professional profile"
+        },
+        {
+          title: "Contact",
+          url: "mailto:lozovskiimaksim@gmail.com",
+          description: "Get in touch"
+        }
+      ];
+
+      return (
+        <div className="container">
+          <h1>Hi, I'm Maksim Lozovskii</h1>
+          <p>
+            I'm a Software Engineer and I love making things
+          </p>
+
+          <div className="links">
+            {links.map((link, index) => (
+              <a key={index} href={link.url} className="card" target="_blank" rel="noreferrer">
+                <h3>{link.title}</h3>
+                <p>{link.description}</p>
+              </a>
+            ))}
+          </div>
+
+          <div className="footer">
+            © {new Date().getFullYear()} Maksim Lozovskii
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
